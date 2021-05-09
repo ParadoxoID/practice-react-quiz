@@ -93,13 +93,17 @@ class Quiz extends Component {
   }
 
   retryHandler = () => {
-    this.setState({ 
+    this.setState({
       activeQuestion: 0,
       answerState: null,
       isFinished: false,
       results: {}
     });
   };
+
+  componentDidMount() {
+    console.log('Quiz ID = ', this.props.match.params.id);
+  }
 
   render() {
     return (

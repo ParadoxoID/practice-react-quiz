@@ -23,7 +23,7 @@ class Layout extends Component {
   render() {
     return (
       <div className={classes.Layout}>
-        <Drawer 
+        <Drawer
           isOpen={this.state.menu}
           onClose={this.menuCloseHandler}
         />
