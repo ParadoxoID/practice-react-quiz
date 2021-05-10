@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import Button from '../../components/UI/Button/Button';
 import Input from '../../components/UI/Input/Input';
 import Select from '../../components/UI/Select/Select';
@@ -104,11 +105,24 @@ export default class QuizCreator extends Component {
     });
   };
 
-  createQuizHandler = event => {
+  createQuizHandler = async event => {
     event.preventDefault();
 
-    console.log(this.state.quiz);
-    // TODO: Firebase?
+    try {
+      await axios.post(
+        'https://react-quiz-v2-default-rtdb.europe-west1.firebasedatabase.app/quizes.json',
+        this.state.quiz
+      );
+
+      this.setState({
+        quiz: [],
+        isFormValid: false,
+        rightAnswerId: 1,
+        formControls: createFormControls()
+      });
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   renderControls() {

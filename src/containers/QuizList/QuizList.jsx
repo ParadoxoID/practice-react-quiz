@@ -7,9 +7,7 @@ export default class QuizList extends Component {
     return [1, 2, 3].map((quiz, index) => {
       return (
         <li key={index}>
-          <NavLink to={'/quiz/' + quiz}>
-            Test {quiz}
-          </NavLink>
+          <NavLink to={'/quiz/' + quiz}>Test {quiz}</NavLink>
         </li>
       );
     });
@@ -21,9 +19,7 @@ export default class QuizList extends Component {
         <div>
           <h1>Список тестов</h1>
 
-          <ul>
-            {this.renderQuizes()}
-          </ul>
+          <ul>{this.renderQuizes()}</ul>
         </div>
       </div>
     );
